@@ -1,0 +1,225 @@
+17:02:37 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/cSquareRoot.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/cSquareRoot.d" -MT"Core/Src/cSquareRoot.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/cSquareRoot.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:9: warning: unused variable 'array' [-Wunused-variable]
+   97 |   float array[10] = {48.21, 79.48, 24.27, 28.82, 78.24, 88.49, 31.19, 5.52, 82.70, 77.73};
+      |         ^~~~~
+../Core/Src/main.c:95:12: warning: unused variable 'maxIndex' [-Wunused-variable]
+   95 |   uint32_t maxIndex;
+      |            ^~~~~~~~
+../Core/Src/main.c:94:9: warning: unused variable 'max' [-Wunused-variable]
+   94 |   float max = 0;
+      |         ^~~
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   8500	     12	   1572	  10084	   2764	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 
+17:02:45 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-size  Lab1_444.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8500	     12	   1572	  10084	   2764	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+17:03:12 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-size  Lab1_444.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8500	     12	   1572	  10084	   2764	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+17:06:44 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:9: warning: unused variable 'array' [-Wunused-variable]
+   97 |   float array[10] = {48.21, 79.48, 24.27, 28.82, 78.24, 88.49, 31.19, 5.52, 82.70, 77.73};
+      |         ^~~~~
+../Core/Src/main.c:95:12: warning: unused variable 'maxIndex' [-Wunused-variable]
+   95 |   uint32_t maxIndex;
+      |            ^~~~~~~~
+../Core/Src/main.c:94:9: warning: unused variable 'max' [-Wunused-variable]
+   94 |   float max = 0;
+      |         ^~~
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   8664	     92	   1884	  10640	   2990	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 
+17:06:58 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-size  Lab1_444.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8664	     92	   1884	  10640	   2990	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+17:10:22 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-size  Lab1_444.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8664	     92	   1884	  10640	   2990	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+17:13:24 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:9: warning: unused variable 'array' [-Wunused-variable]
+   97 |   float array[10] = {48.21, 79.48, 24.27, 28.82, 78.24, 88.49, 31.19, 5.52, 82.70, 77.73};
+      |         ^~~~~
+../Core/Src/main.c:95:12: warning: unused variable 'maxIndex' [-Wunused-variable]
+   95 |   uint32_t maxIndex;
+      |            ^~~~~~~~
+../Core/Src/main.c:94:9: warning: unused variable 'max' [-Wunused-variable]
+   94 |   float max = 0;
+      |         ^~~
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   8652	     92	   1884	  10628	   2984	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 
+17:16:57 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/cSquareRoot.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/cSquareRoot.d" -MT"Core/Src/cSquareRoot.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/cSquareRoot.o"
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   8644	     92	   1884	  10620	   297c	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 
+17:22:02 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:9: warning: unused variable 'array' [-Wunused-variable]
+   97 |   float array[10] = {48.21, 79.48, 24.27, 28.82, 78.24, 88.49, 31.19, 5.52, 82.70, 77.73};
+      |         ^~~~~
+../Core/Src/main.c:95:12: warning: unused variable 'maxIndex' [-Wunused-variable]
+   95 |   uint32_t maxIndex;
+      |            ^~~~~~~~
+../Core/Src/main.c:94:9: warning: unused variable 'max' [-Wunused-variable]
+   94 |   float max = 0;
+      |         ^~~
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   8636	     92	   1884	  10612	   2974	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 
+17:25:49 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:9: warning: unused variable 'array' [-Wunused-variable]
+   97 |   float array[10] = {48.21, 79.48, 24.27, 28.82, 78.24, 88.49, 31.19, 5.52, 82.70, 77.73};
+      |         ^~~~~
+../Core/Src/main.c:95:12: warning: unused variable 'maxIndex' [-Wunused-variable]
+   95 |   uint32_t maxIndex;
+      |            ^~~~~~~~
+../Core/Src/main.c:94:9: warning: unused variable 'max' [-Wunused-variable]
+   94 |   float max = 0;
+      |         ^~~
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   8644	     92	   1884	  10620	   297c	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 
+17:32:40 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/cSquareRoot.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/cSquareRoot.d" -MT"Core/Src/cSquareRoot.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/cSquareRoot.o"
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   6200	     92	   1884	   8176	   1ff0	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 
+12:09:42 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Src/armSquareRoot.d" -MT"Core/Src/armSquareRoot.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/armSquareRoot.o" "../Core/Src/armSquareRoot.s"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:124:17: warning: implicit declaration of function 'cSquareRoot'; did you mean 'squareRoot'? [-Wimplicit-function-declaration]
+  124 |                 cSquareRoot(x2, &result2);
+      |                 ^~~~~~~~~~~
+      |                 squareRoot
+../Core/Src/main.c:97:9: warning: unused variable 'array' [-Wunused-variable]
+   97 |   float array[10] = {48.21, 79.48, 24.27, 28.82, 78.24, 88.49, 31.19, 5.52, 82.70, 77.73};
+      |         ^~~~~
+../Core/Src/main.c:95:12: warning: unused variable 'maxIndex' [-Wunused-variable]
+   95 |   uint32_t maxIndex;
+      |            ^~~~~~~~
+../Core/Src/main.c:94:9: warning: unused variable 'max' [-Wunused-variable]
+   94 |   float max = 0;
+      |         ^~~
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/Applications/STM32CubeIDE/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Applications/STM32CubeIDE/ECSE444_Workspace/Lab1_444/Debug/../Core/Src/main.c:124:(.text.main+0xd6): undefined reference to `cSquareRoot'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: Lab1_444.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+12:10:10 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:9: warning: unused variable 'array' [-Wunused-variable]
+   97 |   float array[10] = {48.21, 79.48, 24.27, 28.82, 78.24, 88.49, 31.19, 5.52, 82.70, 77.73};
+      |         ^~~~~
+../Core/Src/main.c:95:12: warning: unused variable 'maxIndex' [-Wunused-variable]
+   95 |   uint32_t maxIndex;
+      |            ^~~~~~~~
+../Core/Src/main.c:94:9: warning: unused variable 'max' [-Wunused-variable]
+   94 |   float max = 0;
+      |         ^~~
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   6200	     92	   1884	   8176	   1ff0	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 

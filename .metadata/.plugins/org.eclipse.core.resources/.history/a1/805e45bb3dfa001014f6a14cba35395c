@@ -1,0 +1,31 @@
+/*
+ * newtonSquareRoot.c
+ *
+ *  Created on: Jan 25, 2026
+ *      Author: Sjiax
+ */
+
+#include "main.h"
+#include "arm_math.h"
+
+void squareRoot(float x, float *result) {
+	float S = x; // S is the input
+    if (S <= 0) {
+    	*result = 0.0;
+    }
+
+    float x_n = S; // Initial guess
+    float epsilon = 0.000001; // Desired precision
+    float x_next;
+    //float output;
+    while (1) {
+        x_next = 0.5 * (x_n + (S / x_n));
+
+        // Check if the change is smaller than our tolerance
+        if (fabs(x_next - x_n) < epsilon) {
+            break;
+        }
+        x_n = x_next;
+    }
+    *result = x_next;
+}

@@ -1,0 +1,27 @@
+12:10:10 **** Incremental Build of configuration Debug for project Lab1_444 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:9: warning: unused variable 'array' [-Wunused-variable]
+   97 |   float array[10] = {48.21, 79.48, 24.27, 28.82, 78.24, 88.49, 31.19, 5.52, 82.70, 77.73};
+      |         ^~~~~
+../Core/Src/main.c:95:12: warning: unused variable 'maxIndex' [-Wunused-variable]
+   95 |   uint32_t maxIndex;
+      |            ^~~~~~~~
+../Core/Src/main.c:94:9: warning: unused variable 'max' [-Wunused-variable]
+   94 |   float max = 0;
+      |         ^~~
+arm-none-eabi-gcc -o "Lab1_444.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1_444.map" -Wl,--gc-sections -static -L"C:\Applications\STM32CubeIDE\ECSE444_Workspace\Lab1_444\Core\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1_444.elf
+ 
+arm-none-eabi-size  Lab1_444.elf 
+arm-none-eabi-objdump -h -S Lab1_444.elf  > "Lab1_444.list"
+   text	   data	    bss	    dec	    hex	filename
+   6200	     92	   1884	   8176	   1ff0	Lab1_444.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1_444.list
+ 
+
+12:10:12 Build Finished. 0 errors, 3 warnings. (took 2s.588ms)
+

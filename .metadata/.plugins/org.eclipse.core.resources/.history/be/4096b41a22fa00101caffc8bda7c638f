@@ -1,0 +1,16 @@
+/*
+ * armSquareRoot.s
+ *
+ *  Created on: Jan 25, 2026
+ *      Author: Sjiax
+ */
+
+ .syntax unified
+.global armSquareRoot
+.section .text.rodata
+
+armSquareRoot:
+	VLDR.f32	S0, [R0] 		// S0 = input
+	VSQRT		S0, S0
+	VSTR.f32 	S1, [R1]
+	BX LR

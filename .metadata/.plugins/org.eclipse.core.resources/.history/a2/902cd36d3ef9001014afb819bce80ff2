@@ -1,0 +1,46 @@
+/*
+ * armSquareRoot.s
+ *
+ *  Created on: Jan 24, 2026
+ *      Author: Sjiax
+ */
+.syntax unified
+.global armSquareRoot
+ /**extern void armSqrt(float *x);
+	R0--> pointer to input
+*/
+armSquareRoot:
+	PUSH	{R4, R5}
+	VLDR.f32	S0, [R0] 		//input
+my_sqrt:
+    // 1. Handle special cases (if S <= 0)
+	FMOV	S1, #0.0
+    fcmp    s0, s1
+    ble     return_zero        // If s0 <= 0, return 0
+
+    // 2. Initial Guess: x = s0
+    fmov    s1, s0             // s1 is our 'x_n'
+
+    // Load constant 0.5 into s3
+    mov     w0, #0x3F000000    // IEEE 754 for 0.5
+    fmov    s3, w0
+
+    // 3. Newton-Raphson Iteration Loop (8 iterations is usually enough for float)
+    mov     w0, #8             // Loop counter
+
+loop:
+    // Formula: x = 0.5 * (x + S/x)
+    fdiv    s2, s0, s1         // s2 = S / x_n
+    fadd    s1, s1, s2         // s1 = x_n + (S / x_n)
+    fmul    s1, s1, s3         // s1 = 0.5 * (x_n + S/x_n)
+
+    subs    w0, w0, #1         // Decrement counter
+    bne     loop               // Repeat
+
+    // 4. Clean up and return
+    fmov    s0, s1             // Move result to return register
+    ret
+
+return_zero:
+    fmov    s0, #0.0
+    ret

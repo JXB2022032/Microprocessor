@@ -1,0 +1,20 @@
+/*
+ * armSquareRoot.s
+ *
+ *  Created on: Jan 25, 2026
+ *      Author: Sjiax
+ */
+
+ .syntax unified
+.global armSquareRoot
+.section .text.rodata
+
+
+	//extern void armSquareRoot(float input, float *output);
+	// R0 = input pointer
+	// R1 = output pointer
+
+armSquareRoot:
+	VSQRT.f32	S0, S0
+	VSTR.f32 	S0, [R0]
+	BX LR

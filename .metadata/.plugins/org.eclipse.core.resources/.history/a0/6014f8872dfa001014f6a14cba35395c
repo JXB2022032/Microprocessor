@@ -1,0 +1,30 @@
+/*
+ * newtonSquareRoot.c
+ *
+ *  Created on: Jan 25, 2026
+ *      Author: Sjiax
+ */
+
+#include "main.h"
+#include "arm_math.h"
+
+double squareRoot(double S) {
+    if (S < 0) return -1.0; // Handle negative input
+    if (S == 0) return 0.0;
+
+    double x_n = S; // Initial guess
+    double epsilon = 0.000001; // Desired precision
+    double x_next;
+
+    while (1) {
+        x_next = 0.5 * (x_n + (S / x_n));
+
+        // Check if the change is smaller than our tolerance
+        if (fabs(x_next - x_n) < epsilon) {
+            break;
+        }
+        x_n = x_next;
+    }
+
+    return x_next;
+}

@@ -1,0 +1,70 @@
+/*
+ * armSquareRoot.s
+ *
+ *  Created on: Jan 24, 2026
+ *      Author: Sjiax
+ */
+.syntax unified
+.global armSquareRoot
+.section .text.rodata
+ /**extern void armSquareRoot(float *input, float *output);
+	// R0 = input pointer
+	// R1 = output pointer
+*/
+armSquareRoot:
+	PUSH	{R4, R5}
+	VLDR.f32	S0, [R0] 		// S0 = input
+
+my_sqrt:
+    // Handle special cases (if S <= 0)
+	VCMP.f32	S0, #0.0
+    VMRS	APSR_nzcv, FPSCR
+    BLE     return_zero        // If S0 <= 0, return 0
+
+    // Initial Guess
+    VMOV.f32    S1, S0             // S1 = x
+
+    // Load constant 0.5 into s3
+    MOV     R2, #0x3F000000    // IEEE 754 for 0.5
+    VMOV.f32    S3, R2
+
+    // Load epsilon into S6 (example: 1e-6f)
+    LDR         R2, =0x358637BD      // ~1.0e-6f in IEEE754
+    VMOV        S6, R2              // S6 = eps
+
+    // 3. Newton-Raphson Iteration Loop (8 iterations is usually enough for float)
+    //MOV     R2, #80             // Loop counter
+
+loop:
+    // Formula: x = 0.5 * (x + S/x)
+    VDIV.f32    S2, S0, S1         // S2 = S / x
+    VADD.f32    S4, S1, S2         // S4 = x + (S / x)
+    VMUL.f32    S4, S4, S3         // S4 = 0.5 * (x + S/x)
+
+    // delta = |x_next - x|
+    VSUB.f32    S5, S4, S1          // S5 = x_next - x
+    VABS.f32    S5, S5              // S5 = |x_next - x|
+
+	// threshold = eps * |x_next|
+    VABS.f32    S7, S4              // S7 = |x_next|
+    VMUL.f32    S7, S7, S6          // S7 = eps * |x_next|
+
+    // if (delta <= threshold) break
+    VCMP.f32    S5, S7
+    VMRS        APSR_nzcv, FPSCR	// load the FP PSR to branch using FP condition
+    BLE         done
+
+	// x = x_next
+    VMOV.f32    S1, S4
+
+    //SUBS    R2, R2, #1         // Decrement counter
+    BNE     loop               // Repeat
+done:
+    // 4. Clean up and return
+    //VMOV.f32    S3, S1             // Move result to return register
+    VSTR.f32 	S4, [R1]
+    BX LR
+
+return_zero:
+    MOV    R0, #0
+    BX LR

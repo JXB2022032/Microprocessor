@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Lab1_444/Core/Src/asmmax.s&apos; to &apos;asmMax.s&apos;" description="Rename resource &apos;asmmax.s&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/asmmax.s" name="asmMax.s" stamp="1769115887503" updateReferences="true"/>
+</session>
