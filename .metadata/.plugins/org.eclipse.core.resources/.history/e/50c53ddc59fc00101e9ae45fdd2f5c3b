@@ -1,0 +1,36 @@
+/*
+ * lab1math.h
+ *
+ *  Created on: Jan 20, 2026
+ *      Author: Xibei
+ */
+
+#ifndef INC_LAB1MATH_H_
+#define INC_LAB1MATH_H_
+
+#include <stdint.h>
+#include "main.h"
+
+// Function prototype for finding the maximum value in an array, in C.
+void cMax(float *array, uint32_t size, float *max, uint32_t *maxIndex);
+
+// Function prototype for finding the maximum value in an array, in Assembly.
+extern void asmMax(float *array, uint32_t size, float *max, uint32_t *maxIndex);
+
+// Function prototype for finding the square root, in Assembly.
+extern void armSquareRoot(float x, float *result);
+
+// Function prototype for finding the square root, in C.
+extern void cSquareRoot(float S, float *result);
+extern void armCosine(float x, float omega, float phi, float *result);
+extern void asmTrans(float *x, float omega, float phi, uint32_t iterations);
+
+
+// Function prototype for Transcendental function, in C.
+void cTrans(float *x, float omega, float phi, uint32_t iterations);
+
+// Function prototype for Transcendental function, in ASM.
+extern void asmTrans(float *x, float omega, float phi, uint32_t iterations);
+
+
+#endif /* INC_LAB1MATH_H_ */

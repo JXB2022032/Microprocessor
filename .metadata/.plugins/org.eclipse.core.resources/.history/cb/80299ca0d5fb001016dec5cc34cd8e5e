@@ -1,0 +1,17 @@
+/*
+ * lab1math.h
+ *
+ *  Created on: Jan 20, 2026
+ *      Author: Xibei
+ */
+
+#ifndef INC_LAB1MATH_H_
+#define INC_LAB1MATH_H_
+
+extern void asmMax(float *array, uint32_t size, float *max, uint32_t *maxIndex);
+extern void armSquareRoot(float x, float *result);
+extern void squareRoot(float S, float *result);
+
+
+
+#endif /* INC_LAB1MATH_H_ */

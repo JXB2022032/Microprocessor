@@ -1,0 +1,93 @@
+/*
+ * armCosine.s
+ *
+ *  Created on: Jan 27, 2026
+ *      Author: Sjiax
+ */
+.syntax unified
+.cpu cortex-m4
+.fpu fpv4-sp-d16
+.global armCosine
+
+.extern arm_cos_f32
+.extern arm_sin_f32
+
+.section .text.rodata
+
+epsilon: .word 0x33ec3924 // floating-point: 1.1e-7
+
+ /**
+ *
+ * void armCosine(float32_t x, float32_t omega, float32_t phi, float32_t *result);
+ *
+ * S0 = initial guess for Newton-Raphson method
+ * S1 = omega
+ * S2 = phi
+ * R0 = pointer to the output
+ *
+ */
+
+armCosine:
+    // S0=x, S1=omega, S2=phi, R0=ptr
+	PUSH    {R4, LR}
+	VPUSH   {S16-S23}
+    // SAVE TO PROTECTED REGISTERS (S16-S31 are safe)
+    VMOV.f32    S16, S0         // S16 = current x
+    VMOV.f32    S17, S1         // S17 = omega
+    VMOV.f32    S18, S2         // S18 = phi
+    MOV         R4, R0          // Save pointer in R4 (R4 is safe)
+
+    // Load tolerance
+    LDR         R2, =0x358637BD // 1.0e-6f
+    VMOV        S20, R2
+
+newton_cos_loop:
+    // 1. Calculate Angle (omega * x + phi)
+    VMUL.f32    S0, S16, S17
+    VADD.f32    S0, S0, S18
+    VMOV.f32    S19, S0         // Save angle in S19 (safe) to reuse for Sine
+
+    // 2. Call Cosine: Input must be in S0
+    BL          arm_cos_f32     // S0 = cos(angle)
+
+    // 3. f(x) = x^2 - cos_val
+    VMUL.f32    S21, S16, S16   // S21 = x*x
+    VSUB.f32    S21, S21, S0    // S21 = f(x)
+
+    // 4. Call Sine: Move saved angle back to S0
+    VMOV.f32    S0, S19
+    BL          arm_sin_f32     // S0 = sin(angle)
+
+    // 5. df = 2*x + omega*sin_val
+    VADD.f32    S22, S16, S16   // S22 = 2*x
+    VMUL.f32    S0, S17, S0     // S0 = omega * sin_val
+    VADD.f32    S22, S22, S0    // S22 = f'(x)
+
+    // 6. Update x: x = x - f/df
+    VDIV.f32    S23, S21, S22   // S23 = delta
+    VSUB.f32    S16, S16, S23
+
+    // 7. Convergence Check
+    VABS.f32    S23, S23
+    VCMP.f32    S23, S20
+    VMRS        APSR_nzvc, FPSCR
+    BLT         done
+    B           newton_cos_loop
+
+done:
+    VSTR.f32    S16, [R0]       // Store final x using the saved pointer
+    BX          LR
+
+
+
+
+
+
+
+
+
+
+
+
+
+

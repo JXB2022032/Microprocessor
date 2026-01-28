@@ -21,7 +21,9 @@ extern void asmMax(float *array, uint32_t size, float *max, uint32_t *maxIndex);
 extern void armSquareRoot(float x, float *result);
 
 // Function prototype for finding the square root, in C.
-extern void squareRoot(float S, float *result);
+extern void cSquareRoot(float x, float *result);
+extern void armCosine(float x, float omega, float phi, float *result);
+extern void asmTrans(float *x, float omega, float phi, uint32_t iterations);
 
 
 // Function prototype for Transcendental function, in C.

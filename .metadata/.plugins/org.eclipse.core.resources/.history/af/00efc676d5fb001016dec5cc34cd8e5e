@@ -1,0 +1,75 @@
+/*
+ * armCosine.s
+ *
+ *  Created on: Jan 27, 2026
+ *      Author: Sjiax
+ */
+.syntax unified
+
+.global asmx2cos
+
+.extern arm_cos_f32
+.extern arm_sin_f32
+
+.section .text.rodata
+
+epsilon: .word 0x33ec3924 // floating-point: 1.1e-7
+
+ /**
+ *
+ * void armcos(float32_t x, float32_t omega, float32_t phi, float32_t *result);
+ *
+ * S0 = initial guess for Newton-Raphson method
+ * S1 = omega
+ * S2 = phi
+ * R0 = pointer to the output
+ *
+ */
+
+ 	// Load epsilon into S6 (example: 1e-6f)
+    LDR         R2, =0x358637BD      // ~1.0e-6f in IEEE754
+    VMOV        S9, R2              // S6 = eps
+
+ newton_cos_loop:
+ 	VMUL.f32	S3, S0, S1
+	VADD.f32	S3, S3, S2	// S3 = x*omega + phi;
+	VMOV.f32	S4, S3		// S4 = x*omega + phi;
+	BL			arm_cos_f32
+
+	VMUL.f32 	S5, S0, S0
+    VSUB.f32 	S5, S5, S4	// S5 = x*x - cos_val
+
+    VMOV.f32	S6, S3
+    BL			arm_sin_f32		// S6 = sin_val
+
+    // df = 2*x + omega*sin_val
+    VADD.f32 S7, s0, s0    // 2*x
+    VMUL.f32 S8, S1, S6    // omega*sin_val
+    VADD.f32 s7, S7, S8    // S7 = 2*x + omega*sin_val
+
+    // x = x - f/df
+    VDIV.f32 S8, S5, S7
+    VSUB.f32 S0, S0, S8
+
+    VABS.f32 S8, S8
+    VCMP.f32 S8, S9
+    VMRS APSR_nzvc, FPSCR
+    BLT done
+    B newton_cos_loop
+done:
+	VSTR.f32 	S0, [R0]
+	BX LR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
