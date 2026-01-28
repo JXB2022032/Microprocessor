@@ -99,6 +99,16 @@ int main(void)
   float x2 = 36;
   float result = 0;
   float result2 = 0;
+
+  // Transcendental inputs
+  float x_c = 1.0f;
+  float x_asm = 1.0f;
+  float omega = 1.0f;
+  float phi = 0.5f;
+  uint32_t iterations = 10;
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -124,6 +134,28 @@ int main(void)
 		squareRoot(x2, &result2);
 
 	ITM_Port32(31) = 4;
+
+
+	  x_c = 1.0f;
+	  ITM_Port32(31) = 5;
+	  for(int k=0; k<100; k++) {
+	      x_c = 1.0f;
+	      cTrans(&x_c, omega, phi, iterations);
+	  }
+	  ITM_Port32(31) = 6;
+
+
+	  x_asm = 1.0f;
+	  ITM_Port32(31) = 7;
+	  for(int k=0; k<100; k++) {
+	      x_asm = 1.0f;
+	      asmTrans(&x_asm, omega, phi, iterations);
+	  }
+	  ITM_Port32(31) = 8;
+
+	  HAL_Delay(1000);
+
+
   }
   /* USER CODE END 3 */
 }

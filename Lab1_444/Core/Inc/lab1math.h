@@ -8,10 +8,27 @@
 #ifndef INC_LAB1MATH_H_
 #define INC_LAB1MATH_H_
 
+#include <stdint.h>
+#include "main.h"
+
+// Function prototype for finding the maximum value in an array, in C.
+void cMax(float *array, uint32_t size, float *max, uint32_t *maxIndex);
+
+// Function prototype for finding the maximum value in an array, in Assembly.
 extern void asmMax(float *array, uint32_t size, float *max, uint32_t *maxIndex);
+
+// Function prototype for finding the square root, in Assembly.
 extern void armSquareRoot(float x, float *result);
+
+// Function prototype for finding the square root, in C.
 extern void squareRoot(float S, float *result);
 
+
+// Function prototype for Transcendental function, in C.
+void cTrans(float *x, float omega, float phi, uint32_t iterations);
+
+// Function prototype for Transcendental function, in ASM.
+extern void asmTrans(float *x, float omega, float phi, uint32_t iterations);
 
 
 #endif /* INC_LAB1MATH_H_ */
