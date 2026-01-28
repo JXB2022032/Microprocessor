@@ -25,10 +25,10 @@ extern void squareRoot(float S, float *result);
 
 
 // Function prototype for Transcendental function, in C.
-void cTrans(float *x, float omega, float phi, uint32_t iterations);
+void cTrans(float *x, float omega, float phi, float epsilon);
 
 // Function prototype for Transcendental function, in ASM.
-extern void asmTrans(float *x, float omega, float phi, uint32_t iterations);
+extern void asmTrans(float *x, float omega, float phi, float epsilon);
 
 
 #endif /* INC_LAB1MATH_H_ */
