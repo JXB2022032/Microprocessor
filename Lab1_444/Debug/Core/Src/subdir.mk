@@ -6,9 +6,8 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 S_SRCS += \
 ../Core/Src/armSquareRoot.s \
-../Core/Src/armSquareRoot2.s \
 ../Core/Src/asmMax.s \
-../Core/Src/asmTans.s 
+../Core/Src/asmTrans.s 
 
 C_SRCS += \
 ../Core/Src/cSquareRoot.c \
@@ -23,9 +22,8 @@ C_SRCS += \
 
 OBJS += \
 ./Core/Src/armSquareRoot.o \
-./Core/Src/armSquareRoot2.o \
 ./Core/Src/asmMax.o \
-./Core/Src/asmTans.o \
+./Core/Src/asmTrans.o \
 ./Core/Src/cSquareRoot.o \
 ./Core/Src/cmax.o \
 ./Core/Src/ctrans.o \
@@ -38,9 +36,8 @@ OBJS += \
 
 S_DEPS += \
 ./Core/Src/armSquareRoot.d \
-./Core/Src/armSquareRoot2.d \
 ./Core/Src/asmMax.d \
-./Core/Src/asmTans.d 
+./Core/Src/asmTrans.d 
 
 C_DEPS += \
 ./Core/Src/cSquareRoot.d \
@@ -58,12 +55,12 @@ C_DEPS += \
 Core/Src/%.o: ../Core/Src/%.s Core/Src/subdir.mk
 	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
-	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O2 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/armSquareRoot.d ./Core/Src/armSquareRoot.o ./Core/Src/armSquareRoot2.d ./Core/Src/armSquareRoot2.o ./Core/Src/asmMax.d ./Core/Src/asmMax.o ./Core/Src/asmTans.d ./Core/Src/asmTans.o ./Core/Src/cSquareRoot.cyclo ./Core/Src/cSquareRoot.d ./Core/Src/cSquareRoot.o ./Core/Src/cSquareRoot.su ./Core/Src/cmax.cyclo ./Core/Src/cmax.d ./Core/Src/cmax.o ./Core/Src/cmax.su ./Core/Src/ctrans.cyclo ./Core/Src/ctrans.d ./Core/Src/ctrans.o ./Core/Src/ctrans.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32l4xx_hal_msp.cyclo ./Core/Src/stm32l4xx_hal_msp.d ./Core/Src/stm32l4xx_hal_msp.o ./Core/Src/stm32l4xx_hal_msp.su ./Core/Src/stm32l4xx_it.cyclo ./Core/Src/stm32l4xx_it.d ./Core/Src/stm32l4xx_it.o ./Core/Src/stm32l4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32l4xx.cyclo ./Core/Src/system_stm32l4xx.d ./Core/Src/system_stm32l4xx.o ./Core/Src/system_stm32l4xx.su
+	-$(RM) ./Core/Src/armSquareRoot.d ./Core/Src/armSquareRoot.o ./Core/Src/asmMax.d ./Core/Src/asmMax.o ./Core/Src/asmTrans.d ./Core/Src/asmTrans.o ./Core/Src/cSquareRoot.cyclo ./Core/Src/cSquareRoot.d ./Core/Src/cSquareRoot.o ./Core/Src/cSquareRoot.su ./Core/Src/cmax.cyclo ./Core/Src/cmax.d ./Core/Src/cmax.o ./Core/Src/cmax.su ./Core/Src/ctrans.cyclo ./Core/Src/ctrans.d ./Core/Src/ctrans.o ./Core/Src/ctrans.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32l4xx_hal_msp.cyclo ./Core/Src/stm32l4xx_hal_msp.d ./Core/Src/stm32l4xx_hal_msp.o ./Core/Src/stm32l4xx_hal_msp.su ./Core/Src/stm32l4xx_it.cyclo ./Core/Src/stm32l4xx_it.d ./Core/Src/stm32l4xx_it.o ./Core/Src/stm32l4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32l4xx.cyclo ./Core/Src/system_stm32l4xx.d ./Core/Src/system_stm32l4xx.o ./Core/Src/system_stm32l4xx.su
 
 .PHONY: clean-Core-2f-Src
 

@@ -22,12 +22,9 @@ extern void armSquareRoot(float x, float *result);
 
 // Function prototype for finding the square root, in C.
 extern void cSquareRoot(float x, float *result);
-extern void armCosine(float x, float omega, float phi, float *result);
-extern void asmTrans(float *x, float omega, float phi, uint32_t iterations);
-
 
 // Function prototype for Transcendental function, in C.
-void cTrans(float *x, float omega, float phi, float epsilon);
+extern void cTrans(float *x, float omega, float phi, float epsilon);
 
 // Function prototype for Transcendental function, in ASM.
 extern void asmTrans(float *x, float omega, float phi, float epsilon);
