@@ -103,6 +103,9 @@ int main(void)
 
   uint32_t iterations = 10;
 
+  float epsilon = 0.000001f;
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -130,24 +133,22 @@ int main(void)
 	ITM_Port32(31) = 4;
 
 
+	x_c = 1.0f;
+	ITM_Port32(31) = 5;
+	for(int k=0; k<100; k++) {
 	  x_c = 1.0f;
-	  ITM_Port32(31) = 5;
-	  for(int k=0; k<100; k++) {
-	      x_c = 1.0f;
-	      cTrans(&x_c, omega, phi, iterations);
-	  }
-	  ITM_Port32(31) = 6;
+	  cTrans(&x_c, omega, phi, epsilon);
+	}
+	ITM_Port32(31) = 6;
 
 
+	x_asm = 1.0f;
+	ITM_Port32(31) = 7;
+	for(int k=0; k<100; k++) {
 	  x_asm = 1.0f;
-	  ITM_Port32(31) = 7;
-	  for(int k=0; k<100; k++) {
-	      x_asm = 1.0f;
-	      asmTrans(&x_asm, omega, phi, iterations);
-	  }
-	  ITM_Port32(31) = 8;
-
-	  HAL_Delay(1000);
+	  asmTrans(&x_asm, omega, phi, epsilon);
+	}
+	ITM_Port32(31) = 8;
 
 
   }
